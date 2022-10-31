@@ -14,7 +14,7 @@
       "host" : "nanogram.io",
       "repo" : "https://github.com/crchiran/nodejs02.git",
       "ref"  : "origin/main",
-      "path" : "/home/juriy/easyio",
+      "path" : "/srv/nodejs02",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     }
   }

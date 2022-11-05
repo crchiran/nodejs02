@@ -1,28 +1,17 @@
-pipeline {
-  agent any
-  stages {
-    stage('') {
-      steps {
-        sh '''#!/bin/bash
-
-tar czf nodejs02.tar.gz main.js package.json public LICENSE
-scp nodejs02.tar.gz root@170.187.228.173:/srv/
+cd /var/lib/jenkins/workspace/nodejs-pipeline01
+npm install
+tar czf nodejs02.tar.gz main.js package.json ecosystem.json public LICENSE
+sudo scp nodejs02.tar.gz 170.187.228.173:/srv/
 rm nodejs02.tar.gz
 
-
-ssh 170.187.228.173 << \'ENDSSH\'
+sudo ssh 170.187.228.173 << 'ENDSSH'
 cd /srv
 pm2 stop all
 rm -rf nodejs02
 mkdir nodejs02
-tar xf nodejs02.tar.gz -C easyio
-rm nodejs02.tar.gz
-cd easyio 
-npm i
+tar xf nodejs02.tar.gz -C nodejs02
+rm -rf nodejs02.tar.gz
+cd nodejs02 
+npm install
 pm2 start all
-ENDSSH'''
-      }
-    }
-
-  }
-}
+ENDSSH

@@ -1,4 +1,4 @@
-cd /var/lib/jenkins/workspace/nodejs-pipeline01
+cd /var/lib/jenkins/workspace/nodejs02_main
 npm install
 tar czf nodejs02.tar.gz main.js package.json ecosystem.json public LICENSE
 sudo scp nodejs02.tar.gz 170.187.228.173:/srv/

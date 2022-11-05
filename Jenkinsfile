@@ -2,7 +2,7 @@ cd /var/lib/jenkins/workspace/nodejs02_main
 npm install
 tar czf nodejs02.tar.gz main.js package.json ecosystem.json public LICENSE
 sudo scp nodejs02.tar.gz 170.187.228.173:/srv/
-rm nodejs02.tar.gz
+rm -y nodejs02.tar.gz
 
 sudo ssh 170.187.228.173 << 'ENDSSH'
 cd /srv
